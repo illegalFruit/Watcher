@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Exo2-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://EntryMain.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.337255, 0, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 0.784314 )
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_color = Color( 0, 0, 0, 0.392157 )
+
+[sub_resource type="ButtonGroup" id=10]
+resource_local_to_scene = false
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 24
+font_data = ExtResource( 2 )
+
+[node name="Button" type="Button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -400.0
+margin_bottom = -570.0
+rect_min_size = Vector2( 400, 30 )
+mouse_default_cursor_shape = 2
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 2 )
+toggle_mode = true
+group = SubResource( 10 )
+script = ExtResource( 3 )
+
+[node name="ProductLabel" type="Label" parent="."]
+anchor_left = 0.016
+anchor_right = 0.412
+anchor_bottom = 1.0
+margin_left = 0.0159998
+margin_right = -0.0880127
+custom_fonts/font = SubResource( 4 )
+text = "Product"
+valign = 1
+clip_text = true
+
+[node name="MerchLabel" type="Label" parent="."]
+anchor_left = 0.417
+anchor_right = 0.651
+anchor_bottom = 1.0
+margin_left = -0.208008
+margin_right = -0.223999
+custom_colors/font_color = Color( 0, 0, 0, 0.392157 )
+custom_fonts/font = SubResource( 5 )
+text = "Merchant"
+valign = 2
+
+[node name="PriceLabel" type="Label" parent="."]
+anchor_left = 0.784
+anchor_top = 0.033
+anchor_right = 0.982
+anchor_bottom = 0.967
+margin_left = -0.216034
+margin_top = 0.00999999
+margin_right = 0.231995
+margin_bottom = -0.0100021
+text = "Price"
+align = 1
+valign = 1
+clip_text = true
