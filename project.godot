@@ -24,6 +24,15 @@ config/name="InventoryCheck"
 run/main_scene="res://gui.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://globals.gd"
+Debug="*res://debug.gd"
+
+[debug]
+
+gdscript/warnings/enable=false
+
 [display]
 
 window/size/resizable=false

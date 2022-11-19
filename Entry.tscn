@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Exo2-Bold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://EntryMain.gd" type="Script" id=3]
@@ -6,13 +6,12 @@
 [sub_resource type="StyleBoxEmpty" id=9]
 
 [sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.337255, 0, 1, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
+bg_color = Color( 0.337255, 0, 1, 0.388235 )
+border_width_left = 2
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 border_color = Color( 0, 0, 0, 0.784314 )
-border_blend = true
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -23,11 +22,19 @@ shadow_color = Color( 0, 0, 0, 0.392157 )
 resource_local_to_scene = false
 
 [sub_resource type="DynamicFont" id=4]
-size = 24
+size = 28
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 38
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_top = -20
+extra_spacing_bottom = -18
 font_data = ExtResource( 2 )
 
 [node name="Button" type="Button"]
@@ -45,10 +52,12 @@ script = ExtResource( 3 )
 
 [node name="ProductLabel" type="Label" parent="."]
 anchor_left = 0.016
-anchor_right = 0.412
+anchor_right = 0.317
 anchor_bottom = 1.0
 margin_left = 0.0159998
-margin_right = -0.0880127
+margin_top = -3.0
+margin_right = 0.192001
+margin_bottom = 1.0
 custom_fonts/font = SubResource( 4 )
 text = "Product"
 valign = 1
@@ -67,14 +76,16 @@ valign = 2
 
 [node name="PriceLabel" type="Label" parent="."]
 anchor_left = 0.784
-anchor_top = 0.033
+anchor_top = 0.1
 anchor_right = 0.982
-anchor_bottom = 0.967
-margin_left = -0.216034
-margin_top = 0.00999999
+anchor_bottom = 0.9
+margin_left = -0.215973
 margin_right = 0.231995
-margin_bottom = -0.0100021
-text = "Price"
+margin_bottom = -1.90735e-06
+custom_fonts/font = SubResource( 11 )
+text = "$12.34"
 align = 1
 valign = 1
 clip_text = true
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]

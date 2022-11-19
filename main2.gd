@@ -12,6 +12,7 @@ func _ready():
 	save_button = find_node("SaveButton")
 	save_button.connect("pressed", self, "_add_entry")
 
+
 func _show_popup():
 	find_node("Popup").visible = true
 
@@ -25,18 +26,16 @@ func create_entry():
 	var entry = entry_packed.instance()
 	var entries = find_node("EntriesContainer")
 	entries.add_child(entry)
-	entry.setup("tester")
+	entry.setup(find_node("WebsiteURL").text)
 
 func validate_link():
 	var url_text = find_node("WebsiteURL").text
-	if "bhphotovideo.com" in url_text:
-		print("Valid link")
-		return true
-
+	for store in Globals.stores:
+		if store in url_text:
+			return true
+	return false
 
 func _remove_item():
-	## Get the selected button and delete it. 
-	## If none exist, do nothing 
 	if find_node("EntriesContainer").get_child_count() > 0:
 		var pressed_button = find_node("EntriesContainer").get_child(0).group.get_pressed_button()
 		if is_instance_valid(pressed_button):
@@ -49,3 +48,12 @@ func _process(delta):
 	var add_entry_text = find_node("AddItemsText")
 	if entries.get_child_count() > 0:
 		  add_entry_text.visible = false
+	## Debug label
+	var debug_label = find_node("DebugLabel")
+	if Debug.offline:
+		debug_label.text = "MODE: Offline"
+	else:
+		debug_label.text = "MODE: Online"
+	
+	
+	

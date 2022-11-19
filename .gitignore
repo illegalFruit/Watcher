@@ -1,0 +1,12 @@
+# Import cache
+.import/
+
+# Binaries
+bin/
+build/
+lib/
+
+# GD Folder Specific
+.import/
+*.translation
+export_presets.cfg
